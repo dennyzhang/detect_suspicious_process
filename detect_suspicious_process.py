@@ -11,7 +11,7 @@
 ##
 ## --
 ## Created : <2016-01-15>
-## Updated: Time-stamp: <2017-09-04 18:55:31>
+## Updated: Time-stamp: <2017-09-27 10:27:17>
 ##-------------------------------------------------------------------
 import argparse
 import subprocess
@@ -56,10 +56,10 @@ def get_nonkernel_process():
     return process_list
 
 def load_whitelist(fname):
-    white_list = ""
+    white_list = []
     if fname is None:
         print("No white list file is given. Use default value.")
-        white_list = DEFAULT_WHITE_LIST
+        white_list = DEFAULT_WHITE_LIST.split("\n")
     else:
         print("load white list from %s" % (fname))
         with open(fname) as f:
@@ -73,7 +73,7 @@ def list_process(process_list, white_list):
         line = line.strip()
         if line == "":
             continue
-        if not string_in_regex_list(line, white_list.split("\n")):
+        if not string_in_regex_list(line, white_list):
             l.append(line)
     return l
 
