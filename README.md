@@ -9,7 +9,7 @@ File me [tickets](https://github.com/DennyZhang/detect_suspicious_process/issues
 
 Read more: https://www.dennyzhang.com/suspicious_process
 
-Clean up old files or folders
+Scan all linux process, and report those not in the whitelist.
 
 # How To Use
 ```
