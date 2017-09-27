@@ -33,6 +33,7 @@ dbus-daemon .*
  /usr/sbin/mysqld$
  /usr/sbin/apache2 -k start$
 EOF
+```
 
 ```
 python ./detect_suspicious_process.py --whitelist_file /tmp/whitelist.txt
