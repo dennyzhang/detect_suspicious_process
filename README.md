@@ -1,17 +1,42 @@
 # Basic Intro
 <a href="https://github.com/DennyZhang?tab=followers"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 
-[![Build Status](https://travis-ci.org/DennyZhang/cleanup_old_files.svg?branch=master)](https://travis-ci.org/DennyZhang/remote-commands-servers) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Build Status](https://travis-ci.org/DennyZhang/detect_suspicious_process.svg?branch=master)](https://travis-ci.org/DennyZhang/remote-commands-servers) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 [![LinkedIn](https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png)](https://www.linkedin.com/in/dennyzhang001) [![Twitter](https://www.dennyzhang.com/wp-content/uploads/sns/twitter.png)](https://twitter.com/dennyzhang001) [![Slack](https://www.dennyzhang.com/wp-content/uploads/sns/slack.png)](https://www.dennyzhang.com/slack) [![Github](https://www.dennyzhang.com/wp-content/uploads/sns/github.png)](https://github.com/DennyZhang)
 
-File me [tickets](https://github.com/DennyZhang/cleanup_old_files/issues) or star [the repo](https://github.com/DennyZhang/cleanup_old_files).
+File me [tickets](https://github.com/DennyZhang/detect_suspicious_process/issues) or star [the repo](https://github.com/DennyZhang/detect_suspicious_process).
 
 Read more: https://www.dennyzhang.com/suspicious_process
 
 Clean up old files or folders
 
 # How To Use
+```
+git clone https://github.com/DennyZhang/detect_suspicious_process.git
+
+cd detect_suspicious_process
+
+# Prepare a whilelist. Each line is a regexp
+cat > /tmp/whitelist.txt << EOF
+/sbin/getty -.*
+dbus-daemon .*
+ acpid -c /etc/acpi/events -s /var/run/acpid.socket$
+ atd$
+ cron$
+ /lib/systemd/systemd-udevd --daemon$
+ /lib/systemd/systemd-logind$
+ dbus-daemon --system --fork$
+ /usr/sbin/sshd -D$
+ rsyslogd$
+ /usr/sbin/mysqld$
+ /usr/sbin/apache2 -k start$
+EOF
+
+python ./detect_suspicious_process.py --whitelist_file /tmp/whitelist.txt
+```
+
+# Online Usage
 ```
 Denny:dennyzhang.com denny$ ./detect_suspicious_process.py  --help
 usage: detect_suspicious_process.py [-h] [--whitelist_file WHITELIST_FILE]
