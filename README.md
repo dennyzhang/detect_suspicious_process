@@ -9,7 +9,9 @@ File me [tickets](https://github.com/DennyZhang/detect_suspicious_process/issues
 
 Read more: https://www.dennyzhang.com/suspicious_process
 
-Scan all OS processes, and report those not in the whitelist.
+Scan all OS processes. Check them against a whitelist.
+
+Any processes not in the list is supposed to be **suspicious**.
 
 # How To Use
 ```
