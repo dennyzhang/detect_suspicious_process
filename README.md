@@ -36,7 +36,11 @@ EOF
 ```
 
 ```
+# List all "suspicious" process
 python ./detect_suspicious_process.py --whitelist_file /tmp/whitelist.txt
+
+# List "suspicious" process count
+python ./detect_suspicious_process.py --whitelist_file /tmp/whitelist.txt | wc -l
 ```
 
 # Online Usage
