@@ -14,9 +14,10 @@ Clean up old files or folders
 # How To Use
 ```
 git clone https://github.com/DennyZhang/detect_suspicious_process.git
-
 cd detect_suspicious_process
+```
 
+```
 # Prepare a whilelist. Each line is a regexp
 cat > /tmp/whitelist.txt << EOF
 /sbin/getty -.*
@@ -33,6 +34,7 @@ dbus-daemon .*
  /usr/sbin/apache2 -k start$
 EOF
 
+```
 python ./detect_suspicious_process.py --whitelist_file /tmp/whitelist.txt
 ```
 
