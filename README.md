@@ -47,7 +47,7 @@ python ./detect_suspicious_process.py --whitelist_file /tmp/whitelist.txt | wc -
 
 # Online Usage
 ```
-Denny:dennyzhang.com denny$ ./detect_suspicious_process.py  --help
+Denny:dennyzhang.com denny$ ./detect_suspicious_process.py --help
 usage: detect_suspicious_process.py [-h] [--whitelist_file WHITELIST_FILE]
 
 optional arguments:
